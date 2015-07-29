@@ -1,4 +1,12 @@
-
+/**
+ * [code]QueryEngine[/code] base class that starts 
+ * google searching due to internal parameters
+ * 
+ * 
+ * 
+ * @author jarad
+ * @version 0.2
+ */
 
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
@@ -30,6 +38,7 @@ import jersey.repackaged.com.google.common.io.ByteStreams;
 /**
  * Servlet implementation class QueryEngine
  */
+
 @WebServlet("/query")
 public class QueryEngine extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -39,7 +48,6 @@ public class QueryEngine extends HttpServlet {
      */
     public QueryEngine() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
@@ -60,6 +68,8 @@ public class QueryEngine extends HttpServlet {
 		//String encoding = "";
 		
 		Cookie[] cc = request.getCookies();
+		
+		
 		
 		
 		
@@ -97,6 +107,9 @@ public class QueryEngine extends HttpServlet {
 		while ((s = br.readLine()) != null) {
 			sb1.append(s);
 		}
+		
+		
+		
 		
 		JSONObject jObject = new JSONObject(sb1.toString());
 		String queryResult = jObject.getString("status");
