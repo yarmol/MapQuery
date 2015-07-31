@@ -19,11 +19,10 @@ import javax.xml.parsers.ParserConfigurationException;
 </body>
 </html>
 */
-@JSONRootElement
-@XmlRootElement
+
 public class HTMLCreator {
 	public String body; 
-	
+
 	HTMLCreator(String userData) {
 		StringBuilder sb = new StringBuilder();
 		sb.append("<html>");
