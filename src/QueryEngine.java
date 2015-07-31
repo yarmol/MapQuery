@@ -95,7 +95,7 @@ public class QueryEngine extends HttpServlet {
 		
 		final String GOOGLE_PATH = "http://maps.googleapis.com/maps/api/directions/json?";
 		
-		String params = GOOGLE_PATH + "origin="+textQuerySrcEnc+"&destination="+textQueryDstEnc+"&oe=utf-8"; 
+		String params = GOOGLE_PATH + "origin="+textQuerySrcEnc+"&destination="+textQueryDstEnc+"&oe=utf-8&language=uk&region=ua"; 
 		//&oe=cp1251
 		URL url = new URL(params);
 		URLConnection conn = url.openConnection();

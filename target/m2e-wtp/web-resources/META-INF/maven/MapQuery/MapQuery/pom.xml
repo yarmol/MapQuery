@@ -32,4 +32,11 @@
   		<version>20140107</version>
   	</dependency>
   </dependencies>
+  <name>MapQuery</name>
+  <description>Special on-line interface. It has web or UI form to enter string parameters.
+Also it can work as REST function.
+</description>
+  <organization>
+  	<name>Jarad Systems</name>
+  </organization>
 </project>

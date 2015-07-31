@@ -1,4 +1,5 @@
 import javax.swing.text.html.HTMLEditorKit;
+import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -18,7 +19,8 @@ import javax.xml.parsers.ParserConfigurationException;
 </body>
 </html>
 */
-
+@JSONRootElement
+@XmlRootElement
 public class HTMLCreator {
 	public String body; 
 	
