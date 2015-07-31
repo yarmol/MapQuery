@@ -95,12 +95,21 @@ public class QueryEngine extends HttpServlet {
 		
 		final String GOOGLE_PATH = "http://maps.googleapis.com/maps/api/directions/json?";
 		
-		String params = GOOGLE_PATH + "origin="+textQuerySrcEnc+"&destination="+textQueryDstEnc+"&oe=utf-8&language=uk&region=ua"; 
+		String params = GOOGLE_PATH + "origin="+textQuerySrcEnc+"&destination="+textQueryDstEnc+"&oe=utf-8&language=en&region=ua"; 
 		//&oe=cp1251
 		URL url = new URL(params);
 		URLConnection conn = url.openConnection();
 		InputStream iStream = conn.getInputStream();
 		//BufferedReader br = new BufferedReader(new InputStreamReader(iStream,Charset.forName("UTF-8")));
+		
+		BufferedReader bisr = new BufferedReader(new InputStreamReader(iStream));
+		String s1;
+		StringBuilder sb2 = new StringBuilder();
+		while ((s1 = bisr.readLine()) != null) {
+			sb2.append(s1);
+		}
+		
+		
 		BufferedReader br = new BufferedReader(new InputStreamReader(iStream,Charset.forName("UTF-8")));
 		String s;
 		StringBuilder sb1 = new StringBuilder();
@@ -114,7 +123,7 @@ public class QueryEngine extends HttpServlet {
 		
 		
 		
-		JSONObject jObject = new JSONObject(sb1.toString());
+		JSONObject jObject = new JSONObject(sb2.toString());
 		String queryResult = jObject.getString("status");
 		//pw.write(queryResult);
 		JSONArray routeData = jObject.getJSONArray("routes");
