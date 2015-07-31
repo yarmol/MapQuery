@@ -51,7 +51,7 @@ public class QueryEngine extends HttpServlet {
     }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, NullPointerException {
 		//ByteArrayInputStream
@@ -108,14 +108,21 @@ public class QueryEngine extends HttpServlet {
 			sb1.append(s);
 		}
 		
+		//marshalling Object -> XML/JSON
+		//unmarshalling XML/JSON -> Object
+		
 		
 		
 		
 		JSONObject jObject = new JSONObject(sb1.toString());
 		String queryResult = jObject.getString("status");
-		pw.write(queryResult);
-		JSONArray  routeData = jObject.getJSONArray("routes");
-		pw.write(routeData.toString());
+		//pw.write(queryResult);
+		JSONArray routeData = jObject.getJSONArray("routes");
+		//c
+		JSONObject boundsData = routeData.getJSONObject(0);
+		pw.write(boundsData.toString());
+		JSONObject legsData = routeData.getJSONObject(1);
+		pw.write(legsData.toString());
 		
 	}
 
