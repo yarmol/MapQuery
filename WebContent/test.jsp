@@ -13,5 +13,10 @@
 	<%out.println(request.getRemoteHost());%><br>
 	<%out.println(request.getSession().getId());%><br>
 	<%out.println(session.getCreationTime());%>
-	<br>
-</html>
+	<br><jsp:fallback></jsp:fallback><br>
+
+
+	
+	
+	
+	</jsp:useBean></html>
