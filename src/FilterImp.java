@@ -1,6 +1,8 @@
 
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -42,6 +44,10 @@ public class FilterImp implements Filter {
 		// place your code here
 
 		// pass the request along the filter chain
+		PrintWriter pw = response.getWriter();
+		pw.println("Filter do");
+		
+		
 		chain.doFilter(request, response);
 	}
 
